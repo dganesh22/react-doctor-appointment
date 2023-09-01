@@ -1,0 +1,46 @@
+:root {
+  --bg-success: #198754;
+}
+
+
+#hero {
+  
+    height: 100%;
+    width: 100%;
+}
+
+#hero #home {
+  background-image: url('https://res.cloudinary.com/dgn1jgwfg/image/upload/v1692958450/images/hero-bg_ssn1sh.png');
+  background-color: rgba(25,135,84,0.4);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+#hero #about, #hero #contact {
+  height: 100vh;
+  width: 100vw;
+}
+
+#hero #about img {
+  width: 80%;
+  margin: auto;
+  position: relative;
+  top: 40px;
+}
+
+#hero #about .nav-pills .nav-link.active {
+  background-color: #198754;
+  color:#fff;
+}
+
+#hero #about .nav-pills .nav-link {
+  color: #198754;
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Oswald',Rubik !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+
+#auth .card,
+#auth .card-body {
+    border: none !important;
+}
+
+#content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#auth {
+  height: 400px !important;
+}
+
+table {
+  table-layout: fixed;
+}
