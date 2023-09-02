@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 import { AuthContext } from '../../../Context/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function UpdateSlot() {
     const context = useContext(AuthContext)
     const token = context.token
@@ -19,7 +21,7 @@ function UpdateSlot() {
 
     const initValue = useCallback(() => {
         const readValue = async () => {
-          const res = await axios.get(`/api/slot/single/${params.id}`,{
+          const res = await axios.get(`${URL}/api/slot/single/${params.id}`,{
             headers: {
               Authorization: `${token}`
             }
@@ -58,7 +60,7 @@ function UpdateSlot() {
                 slot_date: slot.slot_date,
                 slot_status: status
             }
-            await axios.patch(`/api/slot/update/${params.id}`, updateSlot, {
+            await axios.patch(`${URL}/api/slot/update/${params.id}`, updateSlot, {
                 headers: {
                     Authorization: `${token}`
                 }

@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 import { AuthContext } from '../../Context/AuthContext'
 import { useNavigate, NavLink, useParams } from 'react-router-dom'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function UpdateUserInfo(props) {
     const context = useContext(AuthContext)
     const token = context.token
@@ -28,7 +30,7 @@ function UpdateUserInfo(props) {
                 isActive: user.isActive,
                 userId: params.id
             }
-            await axios.patch(`/api/admin/change/role`, data, {
+            await axios.patch(`${URL}/api/admin/change/role`, data, {
                 headers: {
                     Authorization: `${token}`
                 }

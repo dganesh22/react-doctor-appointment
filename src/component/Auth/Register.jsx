@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function Register(props) {
   const [user,setUser] = useState({
       name: "",
@@ -22,7 +24,7 @@ function Register(props) {
     e.preventDefault();
     try {
         console.log(`user =`, user)
-        await axios.post(`/api/auth/register`, user)
+        await axios.post(`${URL}/api/auth/register`, user)
           .then(res => {
             toast.success(res.data.msg)
             navigate('/login')

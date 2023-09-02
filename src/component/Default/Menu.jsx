@@ -4,6 +4,8 @@ import { AuthContext } from '../../Context/AuthContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function Menu(props) {
     const context = useContext(AuthContext)
     const token = context.token
@@ -15,7 +17,7 @@ function Menu(props) {
 
     const logoutHandler = async () => {
         if (window.confirm(`Are you sure to logout?`)) {
-            await axios.get(`/api/auth/logout`)
+            await axios.get(`${URL}/api/auth/logout`)
                 .then(res => {
                     toast.success(res.data.msg)
                     localStorage.removeItem('loginStatus');

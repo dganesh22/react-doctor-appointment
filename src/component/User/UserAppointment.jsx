@@ -3,6 +3,9 @@ import { AuthContext } from '../../Context/AuthContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
+
 function UserAppointment() {
     const [appointments,setAppointments] = useState([])
 
@@ -12,7 +15,7 @@ function UserAppointment() {
 
     const getAppointment = useCallback(() => {
         const readAppointment = async () => {
-            await axios.get(`/api/appointment/all`, {
+            await axios.get(`${URL}/api/appointment/all`, {
                 headers: { Authorization: `${token}`}
             }).then(res => {
                  let fApp = res.data.appointments.filter((item) => item.user_id === currentUser._id)

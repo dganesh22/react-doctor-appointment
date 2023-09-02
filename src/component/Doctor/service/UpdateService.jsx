@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function UpdateService(props) {
     const context = useContext(AuthContext)
     const navigate = useNavigate()
@@ -22,7 +24,7 @@ function UpdateService(props) {
 
     const initData = useCallback(() => {
       const readData = async () => {
-          await axios.get(`/api/service/single/${params.id}`, {
+          await axios.get(`${URL}/api/service/single/${params.id}`, {
               headers: {
                 Authorization: `${token}`
               }
@@ -47,7 +49,7 @@ function UpdateService(props) {
         e.preventDefault();
         try {
             console.log('service =', service)
-            await axios.patch(`/api/service/update/${params.id}`, service, {
+            await axios.patch(`${URL}/api/service/update/${params.id}`, service, {
                 headers: {
                     Authorization: `${token}`
                 }

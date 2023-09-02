@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
 
 export const AuthContext = createContext()
 
@@ -18,11 +19,11 @@ function AuthProvider(props) {
 
     const initAuth = useCallback(() => {
         const getAuth = async () => {
-            const res = await axios.get(`/api/auth/getToken`)
+            const res = await axios.get(`${URL}/api/auth/getToken`)
             
                 if(res) {
                     setToken(res.data.accessToken)
-                    await axios.get(`/api/auth/logged/user`, {
+                    await axios.get(`${URL}/api/auth/logged/user`, {
                         headers: {
                             Authorization: `${res.data.accessToken}`
                         }

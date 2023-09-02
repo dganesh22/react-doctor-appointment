@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function AddService(props) {
     const context = useContext(AuthContext)
     const navigate = useNavigate()
@@ -29,7 +31,7 @@ function AddService(props) {
         e.preventDefault();
         try {
             console.log('service =', service)
-            await axios.post(`/api/service/add`, service, {
+            await axios.post(`${URL}/api/service/add`, service, {
                 headers: {
                     Authorization: `${token}`
                 }

@@ -4,6 +4,7 @@ import { useNavigate, NavLink } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
 
 function ServiceList() {
     const [services,setServices] = useState([])
@@ -13,7 +14,7 @@ function ServiceList() {
 
     const initValue = useCallback(() => {
         const readValue = async () => {
-            await axios.get(`/api/service/all`, {
+            await axios.get(`${URL}/api/service/all`, {
                 headers: {
                     Authorization: `${token}`
                 }
@@ -32,7 +33,7 @@ function ServiceList() {
     const deleteHandler = async (id) => {
         try {
            if(window.confirm(`Are you sure to delete service?`)) {
-                await axios.delete(`/api/service/delete/${id}`, {
+                await axios.delete(`${URL}/api/service/delete/${id}`, {
                     headers: {
                         Authorization: `${token}`
                     }

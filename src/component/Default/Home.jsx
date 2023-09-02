@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { AuthContext } from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
 
 function Home(props) {
   const [services,setServices] = useState([])
@@ -14,7 +15,7 @@ function Home(props) {
 
   const getServices = useCallback(() => {
       const readService = async () => {
-          await axios.get(`/api/service/all`, {
+          await axios.get(`${URL}/api/service/all`, {
               headers: {
                 Authorization: `${token}`
               }
@@ -43,7 +44,7 @@ function Home(props) {
       }
 
       console.log('booking =', data)
-      await axios.post(`/api/appointment/add`, data, {
+      await axios.post(`${URL}/api/appointment/add`, data, {
         headers: {
           Authorization: `${token}`
         }

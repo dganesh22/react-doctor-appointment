@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 
 function AllDoctors(props) {
     const [doctors,setDoctors] = useState([])
@@ -13,7 +15,7 @@ function AllDoctors(props) {
 
     const getDoctor = useCallback(() => {
         const readDoctor = async () => {
-            await axios.get(`/api/admin/all/reg/doctors`, {
+            await axios.get(`${URL}/api/admin/all/reg/doctors`, {
                 headers: {
                     Authorization: `${token}`
                 }

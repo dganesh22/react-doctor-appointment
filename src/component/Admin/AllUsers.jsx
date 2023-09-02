@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { AuthContext } from '../../Context/AuthContext'
 import { useNavigate, NavLink } from 'react-router-dom'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
 
 function AllUsers(props) {
     const context = useContext(AuthContext)
@@ -13,7 +14,7 @@ function AllUsers(props) {
 
     const initData = useCallback(() => {
         const readData = async () => {
-            await axios.get(`/api/user/all`, {
+            await axios.get(`${URL}/api/user/all`, {
                 headers: {
                     Authorization: `${token}`
                 }

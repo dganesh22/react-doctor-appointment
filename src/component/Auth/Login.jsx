@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function Login(props) {
   const [user,setUser] = useState({
     email: "",
@@ -19,7 +21,7 @@ function Login(props) {
       e.preventDefault()
       try {
           console.log('user =', user)
-          await axios.post(`/api/auth/login`, user)
+          await axios.post(`${URL}/api/auth/login`, user)
             .then(res => {
               toast.success(res.data.msg)
               localStorage.setItem('loginStatus', true)

@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 import { AuthContext } from '../../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function AddSlot() {
     const context = useContext(AuthContext)
     const token = context.token
@@ -23,7 +25,7 @@ function AddSlot() {
     const submitHandler = async (e) => {
         e.preventDefault();
         try{
-            await axios.post(`/api/slot/create`, slot, {
+            await axios.post(`${URL}/api/slot/create`, slot, {
                 headers: {
                     Authorization: `${token}`
                 }

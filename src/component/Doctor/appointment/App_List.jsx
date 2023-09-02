@@ -3,6 +3,7 @@ import { AuthContext } from '../../../Context/AuthContext'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
 
 function AppList(props) {
     const [appointments,setAppointments] = useState([])
@@ -13,7 +14,7 @@ function AppList(props) {
 
     const getAppointment = useCallback(() => {
         const readAppointment = async () => {
-            await axios.get(`/api/doctor/appointments`, {
+            await axios.get(`${URL}/api/doctor/appointments`, {
                 headers: { Authorization: `${token}`}
             }).then(res => {
                     setAppointments(res.data.appointments)
@@ -31,7 +32,7 @@ function AppList(props) {
 
     // confirm handler
     const confirmHandler = async (id) => {
-        await axios.patch(`/api/appointment/update/${id}`, {
+        await axios.patch(`${URL}/api/appointment/update/${id}`, {
             app_status: "booked",
             confirm: true
         } , {
@@ -47,7 +48,7 @@ function AppList(props) {
     // cancel handler 
     const cancelHandler = async (id) => {
         if(window.confirm(`Are you sure to cancel an appointment?`)) {
-            await axios.patch(`/api/appointment/update/${id}`, {
+            await axios.patch(`${URL}/api/appointment/update/${id}`, {
                 app_status: "cancelled",
                 confirm: false
             } , {
@@ -64,7 +65,7 @@ function AppList(props) {
     // delete handler 
     const deleteHandler = async (id) => {
         if(window.confirm(`Are you sure to delete an appointment?`)) {
-            await axios.delete(`/api/appointment/delete/${id}`, {
+            await axios.delete(`${URL}/api/appointment/delete/${id}`, {
                 headers: {
                     Authorization: `${token}`
                 }

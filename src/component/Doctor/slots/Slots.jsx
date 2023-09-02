@@ -4,6 +4,8 @@ import { toast } from 'react-toastify'
 import { AuthContext } from '../../../Context/AuthContext'
 import { NavLink, useNavigate } from 'react-router-dom'
 
+const URL = "https://doctor-appointment-booking-wgv0.onrender.com"
+
 function Slots() {
     const context = useContext(AuthContext)
     const token = context.token
@@ -15,7 +17,7 @@ function Slots() {
 
     const initData = useCallback(() => {
         const readData = async () => {
-            const res= await axios.get(`/api/slot/all`, {
+            const res= await axios.get(`${URL}/api/slot/all`, {
                 headers: {
                     Authorization: `${token}`
                 }
@@ -35,7 +37,7 @@ function Slots() {
     // delete slot
     const deleteHandler = async (id) => {
         if(window.confirm(`Are you sure to delete the slot?`)) {
-                await axios.delete(`/api/slot/delete/${id}`, {
+                await axios.delete(`${URL}/api/slot/delete/${id}`, {
                     headers: {
                         Authorization: `${token}`
                     }
